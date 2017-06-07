@@ -18,7 +18,7 @@ public class ClientsDaoImpl implements IClientsDao {
     private SessionFactory sessionFactory;
 
     public ClientsDaoImpl() {
-        sessionFactory = HibernateUtil.getSession();
+        sessionFactory = HibernateUtil.createSession();
     }
 
     @Override
@@ -114,7 +114,6 @@ public class ClientsDaoImpl implements IClientsDao {
 
     @Override
     public List<Clients> readAll() {
-
         return sessionFactory.getCurrentSession().createCriteria(Clients.class).list();
     }
 
