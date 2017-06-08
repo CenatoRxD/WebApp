@@ -12,72 +12,27 @@
     <div>
         <h:form id="clientForm">
             <h:panelGrid columns="2">
+
                 <h:outputLabel value="Name:"/>
-                <h:inputText value="#{clientsBean.name}" required="true">
-                    <f:viewParam id="name" value="#{clientsBean.name}"/>
-                </h:inputText>
+
+                <h:inputText value="#{clientsBean.name}" required="true"/>
+
 
                 <h:outputLabel value="Last name:"/>
 
-                <h:inputText value="#{clientsBean.lastName}" required="true">
-                    <f:viewParam id="last" value="#{clientsBean.lastName}"/>
-                </h:inputText>
+                <h:inputText value="#{clientsBean.lastName}" required="true"/>
 
                 <h:outputLabel value="Age:"/>
 
-                <h:inputText value="#{clientsBean.age}" required="true">
-                    <f:viewParam id="age" value="#{clientsBean.age}"/>
-                </h:inputText>
+                <h:inputText value="#{clientsBean.age}" required="true"/>
 
                 <h:outputLabel value="Address:"/>
 
-                <h:inputText value="#{clientsBean.address}" required="true">
-                    <f:viewParam id="address" value="#{clientsBean.address}"/>
-                </h:inputText>
+                <h:inputText value="#{clientsBean.address}" required="true"/>
 
-                <h:commandButton value="add" action="#{clientsBean.clientsDao.create()}"/>
+                <h:commandButton value="add" action="#{clientsBean.addClients}"/>
             </h:panelGrid>
         </h:form>
-    </div>
-    <div>
-        <h:dataTable>
-            <f:facet name="caption">Clients</f:facet>
-
-            <h:column>
-                <f:facet name="header">Name</f:facet>
-                #{clientsBean.name}
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">Last name</f:facet>
-                #{clientsBean.lastName}
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">Age</f:facet>
-                #{clientsBean.age}
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">Address</f:facet>
-                #{clientsBean.address}
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">Update</f:facet>
-                <h:commandButton value="Update" action="#{clientsBean.clientsDao.update(initParam)}">
-                    <f:param value="#{clientsBean.id}"/>
-                </h:commandButton>
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">Delete</f:facet>
-                <h:commandButton value="Delete" action="#{clientsBean.clientsDao.delete(initParam)}">
-                    <f:param value="#{clientsBean.id}"/>
-                </h:commandButton>
-            </h:column>
-
-        </h:dataTable>
     </div>
 </h:body>
 </html>

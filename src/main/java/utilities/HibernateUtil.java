@@ -13,7 +13,7 @@ public class HibernateUtil {
     }
 
     public static synchronized SessionFactory createSession() {
-        sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+        sessionFactory = new Configuration().configure().buildSessionFactory();
         return sessionFactory;
     }
 }

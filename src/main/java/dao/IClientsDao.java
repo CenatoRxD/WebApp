@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface IClientsDao {
 
-    Clients create();
+    Clients create(Clients clients);
 
     Clients read(int index);
 
