@@ -6,15 +6,16 @@ import entity.Clients;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Sviatoslav on 05.06.2017.
  */
-@ManagedBean(name = "clientsBean", eager = true)
+@ManagedBean(name = "clientsBean")
 @RequestScoped
-public class ClientsBean {
+public class ClientsBean implements Serializable{
     private IClientsDao dao = new ClientsDaoImpl();
 
     private int id;
