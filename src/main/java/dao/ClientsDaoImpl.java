@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Clients;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -21,21 +22,23 @@ public class ClientsDaoImpl implements IClientsDao {
 
     @Override
     public Clients create(Clients clients) {
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        session.save(clients);
-        session.getTransaction().commit();
-        session.close();
+        try (Session session = sessionFactory.getCurrentSession()) {
+            session.beginTransaction();
+            session.save(clients);
+            session.getTransaction().commit();
+        } catch (HibernateException he) {
+            System.err.println("Failed" + he);
+            throw new HibernateException(he);
+        }
+
         return clients;
     }
 
     @Override
     public Clients read(int index) {
-
         Session session = sessionFactory.getCurrentSession();
         Clients clients = session.load(Clients.class, index);
         session.close();
-
         return clients;
     }
 

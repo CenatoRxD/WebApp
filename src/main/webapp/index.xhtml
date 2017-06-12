@@ -5,33 +5,96 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<head>
-    <title>asdgfadsf</title>
-</head>
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <h:outputStylesheet name="css/bootstrap.css"/>
+    <h:outputScript name="js/bootstrap.js"/>
+
+    <title>Clients form</title>
+
+</h:head>
 <h:body>
-    <div>
-        <h:form id="clientForm">
-            <h:panelGrid columns="2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h2>Clients Form</h2>
+                    </div>
+                    <div class="panel-body">
+                        <h:form styleClass="form-horizontal">
 
-                <h:outputLabel value="Name:"/>
+                            <div class="form-group">
+                                <div class="row">
+                                    <h:outputLabel for="name"
+                                                   styleClass="control-label col-sm-4 ">Name:</h:outputLabel>
+                                    <div class="col-md-4">
+                                        <h:inputText id="name" styleClass="form-control" value="#{clientsBean.name}">
+                                            <f:validateRequired/>
+                                        </h:inputText>
+                                    </div>
+                                    <h:outputLabel for="name"
+                                                   styleClass="control-label col-sm-4">Error messeges</h:outputLabel>
+                                </div>
+                            </div>
 
-                <h:inputText value="#{clientsBean.name}" required="true"/>
+                            <div class="form-group">
+                                <div class="row">
+                                    <h:outputLabel for="lname"
+                                                   styleClass="control-label col-sm-4 ">Last name:</h:outputLabel>
 
-                <h:outputLabel value="Last name:"/>
+                                    <div class="col-md-4">
+                                        <h:inputText id="lname" styleClass="form-control"
+                                                     value="#{clientsBean.lastName}">
+                                            <f:validateRequired/>
+                                        </h:inputText>
+                                    </div>
+                                    <h:outputLabel for="lname"
+                                                   styleClass="control-label col-sm-4">Error messeges</h:outputLabel>
+                                </div>
+                            </div>
 
-                <h:inputText value="#{clientsBean.lastName}" required="true"/>
+                            <div class="form-group">
+                                <div class="row">
+                                    <h:outputLabel for="age"
+                                                   styleClass="control-label col-sm-4 ">Age:</h:outputLabel>
 
-                <h:outputLabel value="Age:"/>
+                                    <div class="col-md-4">
+                                        <h:inputText id="age" styleClass="form-control" value="#{clientsBean.age}">
+                                            <f:validateRequired/>
+                                        </h:inputText>
+                                    </div>
+                                    <h:outputLabel for="age"
+                                                   styleClass="control-label col-sm-4">Error messeges</h:outputLabel>
+                                </div>
+                            </div>
 
-                <h:inputText value="#{clientsBean.age}" required="true"/>
+                            <div class="form-group">
+                                <div class="row">
+                                    <h:outputLabel for="address"
+                                                   styleClass="control-label col-sm-4 ">Address:</h:outputLabel>
 
-                <h:outputLabel value="Address:"/>
+                                    <div class="col-md-4">
+                                        <h:inputText id="address" styleClass="form-control"
+                                                     value="#{clientsBean.address}">
+                                            <f:validateRequired/>
+                                        </h:inputText>
+                                    </div>
+                                    <h:outputLabel for="address"
+                                                   styleClass="control-label col-sm-4">Error messeges</h:outputLabel>
+                                </div>
+                            </div>
 
-                <h:inputText value="#{clientsBean.address}" required="true"/>
+                            <h:commandButton styleClass="btn btn-primary col- col-md-offset-5"
+                                             value="Create" action="#{clientsBean.addClients}"/>
 
-                <h:commandButton value="add" action="#{clientsBean.addClients}"/>
-            </h:panelGrid>
-        </h:form>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </h:body>
 </html>

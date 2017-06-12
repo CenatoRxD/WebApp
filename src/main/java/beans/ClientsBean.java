@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Sviatoslav on 05.06.2017.
  */
-@ManagedBean(name = "clientsBean")
+@ManagedBean(name = "clientsBean", eager = true)
 @RequestScoped
 public class ClientsBean implements Serializable{
     private IClientsDao dao = new ClientsDaoImpl();
